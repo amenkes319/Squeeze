@@ -1,0 +1,39 @@
+0  import java.util.Scanner;
+0  import java.io.*;
+0  
+0  public class Int1
+0  {
+3  public static void main(String[] args) throws Exception
+3  {
+6  Scanner scanner = new Scanner(new File(System.getProperty("user.dir") + "\\src\\input.txt"));
+6  String fullList;
+6  String numList;
+6  int length;
+6  long sum;
+0  
+6  while(scanner.hasNextLine())
+6  {
+9  sum = 0;
+9  fullList = scanner.nextLine();
+9  numList = fullList.substring(0, fullList.length()-2);
+9  length = Integer.parseInt(fullList.substring(fullList.indexOf(" ") + 1));
+0  
+9  if(length >= 10)
+9  {
+12  for(int i=0; i<numList.length()-(length); i++)
+12  {
+15  sum += Long.parseLong(numList.substring(i, i+length));
+12  }
+9  }
+9  else
+9  {
+12  for(int i=0; i<numList.length()-(length-1); i++)
+12  {
+15  sum += Long.parseLong(numList.substring(i, i+length));
+12  }
+9  }
+9  System.out.println(sum);
+6  }
+6  scanner.close();
+3  }
+0  }
